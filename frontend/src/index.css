@@ -4,4 +4,11 @@
 
 body {
   overflow-x: hidden;
+  /* max-width: 1540px; */
+}
+
+.auth_bg {
+  background: url(./assets/auth_bg.png);
+  background-size: cover;
+  background-position: center;
 }

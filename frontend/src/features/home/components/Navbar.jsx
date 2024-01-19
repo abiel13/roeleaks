@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -31,12 +32,18 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-2">
-        <button className="px-6 py-2 rounded-lg text-primaryText border-2 border-white bg-transparent">
+        <Link
+          to={"/auth/login"}
+          className="px-6 py-2 rounded-lg text-primaryText border-2 border-white bg-transparent"
+        >
           Login in
-        </button>
-        <button className="px-6 py-2 rounded-lg text-primary bg-white">
+        </Link>
+        <Link
+          to={"/auth/register"}
+          className="px-6 py-2 rounded-lg text-primary bg-white"
+        >
           Sign up
-        </button>
+        </Link>
       </div>
     </div>
   );
