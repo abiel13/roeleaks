@@ -1,6 +1,6 @@
 import React from "react";
 
-const Fields = ({ title, placeholder }) => {
+const Fields = ({ title, placeholder }:any) => {
   return (
     <div className="flex flex-col gap-3">
       <p className="capitalize text-white font-bold">{title}</p>

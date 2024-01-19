@@ -16,10 +16,7 @@ const SignUpScreen = () => {
       </div>
       <div className="mt-[1rem] flex flex-col  gap-1 w-full ">
         <p className="text-white font-bold">Already have an account</p>
-        <Link
-          className="text-[#00ffff] font-medium text-lg "
-          to={"/auth/login"}
-        >
+        <Link className="text-[#00ffff] font-medium text-lg " to={"/login"}>
           Login
         </Link>
       </div>

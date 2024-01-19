@@ -20,7 +20,7 @@ const LoginScreen = () => {
         <p className="text-white">Don't have an account</p>
         <Link
           className="text-[#00ffff] font-medium text-lg "
-          to={"/auth/register"}
+          to={"/register"}
         >
           Create One
         </Link>
