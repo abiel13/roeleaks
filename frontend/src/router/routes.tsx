@@ -9,6 +9,10 @@ export const routes = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       {
+        path: "",
+        element: <LoginScreen />,
+      },
+      {
         path: "login",
         element: <LoginScreen />,
       },

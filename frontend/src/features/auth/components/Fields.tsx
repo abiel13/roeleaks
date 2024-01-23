@@ -1,4 +1,3 @@
-import React from "react";
 
 const Fields = ({ title, placeholder }:any) => {
   return (

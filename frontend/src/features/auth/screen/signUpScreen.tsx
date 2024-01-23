@@ -1,4 +1,3 @@
-import React from "react";
 import Fields from "../components/Fields";
 import { Link } from "react-router-dom";
 
