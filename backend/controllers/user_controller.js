@@ -16,6 +16,19 @@ const Create_User = asyncHandler(async (req, res) => {
   }
 
   try {
+    const doesUserWithEmail = User.find({ email });
+
+    if (doesUserWithEmail) {
+      return res.status(400).send({ data: null, error: "email is  taken" });
+    }
+
+    const doesUserWithname = User.find({ username });
+
+    if (doesUserWithname) {
+      return res.status(400).send({ data: null, error: "user name is take" });
+    }
+
+    
     const salt = await bcrypt.genSalt(10);
     const hashPassword = bcrypt.hashSync(password, salt);
 
@@ -124,12 +137,12 @@ const resetPassword = asyncHandler(async (req, res) => {
       .status(400)
       .send({ data: null, error: "otp , email and password are required " });
   }
- 
+
   try {
     const user = await User.findOne({ email });
-  
+
     if (!user || !verifyOtp(user.otpKey, otp)) {
-      console.log(otp)
+      console.log(otp);
       return res
         .status(401)
         .send({ data: null, error: "Invalid or expired token" });
