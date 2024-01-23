@@ -7,12 +7,12 @@ const { generateOTP, generateOTPSecret, verifyOtp } = require("../config/otp");
 const { sendMail } = require("../config/transporter");
 
 const Create_User = asyncHandler(async (req, res) => {
-  const { name, password, email } = req.body;
+  const { username, password, email } = req.body;
 
-  if (!name || !email || !password) {
+  if (!username || !email || !password) {
     return res
       .status(400)
-      .send({ error: "name , email and password  fields are required" });
+      .send({ error: "username , email and password  fields are required" });
   }
 
   try {
@@ -20,7 +20,7 @@ const Create_User = asyncHandler(async (req, res) => {
     const hashPassword = bcrypt.hashSync(password, salt);
 
     const new_user = await User.create({
-      name,
+      username,
       email,
       password: hashPassword,
     });
