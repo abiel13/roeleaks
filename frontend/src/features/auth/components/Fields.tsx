@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC } from "react";
+import  { ChangeEvent, FC } from "react";
 
 interface FieldsI {
   title: string;
@@ -25,12 +25,13 @@ const Fields: FC<FieldsI> = ({
         {title}
       </p>
       <input
-        type="text"
+        type={type}
         className="bg-[#8A8A8A70] px-4 py-3 rounded-lg border-none outline-[#00ffff] "
         placeholder={placeholder}
         name={name}
         value={value}
         onChange={onChange}
+        
       />
       {errors && <p className="text-white">{errors}</p>}
     </div>
