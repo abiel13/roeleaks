@@ -1,9 +1,38 @@
+import React, { ChangeEvent, FC } from "react";
 
-const Fields = ({ title, placeholder }:any) => {
+interface FieldsI {
+  title: string;
+  placeholder: string;
+  type?: string;
+  name: string;
+  value: string;
+  onChange: (e: ChangeEvent) => void;
+  errors: string | undefined;
+}
+
+const Fields: FC<FieldsI> = ({
+  title,
+  placeholder,
+  type,
+  name,
+  value,
+  onChange,
+  errors,
+}) => {
   return (
-    <div className="flex flex-col gap-3">
-      <p className="capitalize text-white font-bold">{title}</p>
-      <input className="bg-[#8A8A8A70] px-4 py-3 rounded-lg border-none outline-[#00ffff] " placeholder={placeholder} type="text" />
+    <div className="w-full flex flex-col gap-1 py-2">
+      <p className="font-sans text-xl font-bold capitalize text-white">
+        {title}
+      </p>
+      <input
+        type="text"
+        className="bg-[#8A8A8A70] px-4 py-3 rounded-lg border-none outline-[#00ffff] "
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+      {errors && <p className="text-white">{errors}</p>}
     </div>
   );
 };
