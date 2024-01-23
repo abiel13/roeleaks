@@ -15,7 +15,7 @@ const LoginScreen = () => {
       if (res) {
         toast("Login Succesful", {theme:'colored'});
         navigate("/");
-        localStorage.setItem("Roleaks", JSON.stringify(res));
+        localStorage.setItem("Roleaks", JSON.stringify(res?.data));
       }
     } catch (error) {
       console.log(error);
