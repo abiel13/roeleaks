@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Discord: React.FC = () => {
   return (
@@ -10,9 +11,9 @@ const Discord: React.FC = () => {
         join our discord server get updated about any changes and annoucements
       </p>
 
-      <div>
+      <Link to={'https://www.discord.com/invite/roleaks'}>
         <Button text="Join Server" />
-      </div>
+      </Link>
     </div>
   );
 };

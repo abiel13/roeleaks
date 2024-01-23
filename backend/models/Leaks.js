@@ -10,9 +10,18 @@ const leakSchema = mongoose.Schema({
     required: true,
   },
   comments: {
-    type: String,
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Comment",
   },
   likes: {
-    type: Number,
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Likes",
+  },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
   },
 });
+
+module.exports = mongoose.model.Leaks || mongoose.model("Leaks", leakSchema);
