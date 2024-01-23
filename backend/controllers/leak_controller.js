@@ -12,7 +12,12 @@ const fetchLeaks = handler(async (req, res) => {
 
     const data = await Leaks.find()
       .skip((page - 1) * limit)
-      .limit(limit);
+      .populate({
+        path: "author",
+        select: "username -_id",
+      })
+      .limit(limit)
+      .exec();
 
     const hasNextPage = page < totalPages;
     const hasPrevPage = page > 1;
