@@ -16,19 +16,19 @@ const Create_User = asyncHandler(async (req, res) => {
   }
 
   try {
-    const doesUserWithEmail = User.find({ email });
+    const doesUserWithEmail = await User.find({ email });
 
     if (doesUserWithEmail) {
       return res.status(400).send({ data: null, error: "email is  taken" });
     }
 
-    const doesUserWithname = User.find({ username });
+    const doesUserWithname = await User.find({ username });
 
     if (doesUserWithname) {
       return res.status(400).send({ data: null, error: "user name is take" });
     }
 
-    
+
     const salt = await bcrypt.genSalt(10);
     const hashPassword = bcrypt.hashSync(password, salt);
 
