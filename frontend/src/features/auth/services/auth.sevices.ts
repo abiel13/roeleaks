@@ -31,7 +31,6 @@ export const signupUser = async (value: {
   username: string;
 }) => {
   const raw = JSON.stringify(value);
-  console.log(raw);
   try {
     const response = await axios
       .post("https://roleaks-api.onrender.com/api/v1/auth/create_user", raw, {
@@ -45,7 +44,6 @@ export const signupUser = async (value: {
           { theme: "colored" }
         );
       });
-    console.log(response?.data);
     return response?.data;
   } catch (error: any) {
     console.log(error.message);
