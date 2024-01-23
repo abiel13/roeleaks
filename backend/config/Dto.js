@@ -9,8 +9,8 @@ const UserDTO = (value) => {
     "otpExpires",
     "otpKey",
     "leaks",
-    "pinnedleaks",
-    "likedleaks", 
+    "pinnedLeaks",
+    "likedLeaks", 
   ];
   const updated = _.omit(value, excludedFields);
   return updated;

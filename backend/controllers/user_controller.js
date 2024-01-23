@@ -18,14 +18,14 @@ const Create_User = asyncHandler(async (req, res) => {
   try {
     const doesUserWithEmail = await User.find({ email });
 
-    if (doesUserWithEmail) {
+    if (doesUserWithEmail.length) {
       console.log(doesUserWithEmail);
       return res.status(400).send({ data: null, error: "email is  taken" });
     }
 
     const doesUserWithname = await User.find({ username });
 
-    if (doesUserWithname) {
+    if (doesUserWithname.length) {
       console.log(doesUserWithname);
       return res.status(400).send({ data: null, error: "user name is taken" });
     }

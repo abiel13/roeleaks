@@ -33,8 +33,8 @@ const LoginScreen = () => {
 
   return (
     <div
-      style={{ backdropFilter: "blur(6px)" }}
-      className="w-[30%] bg-[#D9D9D929] rounded-lg  px-5 py-3 min-h-[456px] flex flex-col items-center"
+      style={{ backdropFilter: "blur(10%)" }}
+      className="w-[97%] md:w-[30%] bg-[#D9D9D929] rounded-lg  px-5 py-3 min-h-[456px] flex flex-col items-center"
     >
       <h3 className="text-[#A9A9A9] text-[2rem] font-bold">Welcome Back</h3>
       <div className="flex flex-col gap-8 w-full mt-[1rem]">
