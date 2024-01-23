@@ -1,7 +1,7 @@
 import { crewdata } from "@/constants/creditdata";
 import React from "react";
 
-const Credits = () => {
+const Credits: React.FC = () => {
   return (
     <div className="flex flex-col gap-4">
       <h3 className="font-bold text-xl">Credits</h3>
@@ -33,7 +33,10 @@ const Credits = () => {
 
       <div className="flex gap-4 items-center ">
         {crewdata.map((item, i) => (
-          <div className="w-[250px] min-h-[200px] flex flex-col bg-[#434141E5] rounded-lg items-center justify-center">
+          <div
+            key={i}
+            className="w-[250px] min-h-[200px] flex flex-col bg-[#434141E5] rounded-lg items-center justify-center"
+          >
             <img
               src={item.imgUrl}
               className="w-[100px] h-[100px] rounded-full"
