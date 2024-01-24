@@ -3,7 +3,7 @@ import { fetchLeaks } from "../services/leaks";
 import LeakCard from "../components/LeakCard";
 import { Separator } from "@/components/ui/separator";
 import { Rings } from "react-loader-spinner";
-import { Divide } from "lucide-react";
+
 
 const Feed: React.FC = () => {
   const [Leaks, setLeaks] = useState<any>();
