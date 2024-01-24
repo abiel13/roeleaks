@@ -5,16 +5,22 @@ import { loginSchema } from "../validations/authValidations";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginUser } from "../services/auth.sevices";
+import { authStore } from "@/context/stores/authstore";
 
 const LoginScreen = () => {
   const navigate = useNavigate();
+  const settoken = authStore((state) => state.setToken);
+  const setuser = authStore((state) => state.setUser);
+  const setisloggedin = authStore((state) => state.setIsLoggedin);
   const onSubmit = async (values: any) => {
-   
     try {
       const res = await loginUser(values);
       if (res) {
-        toast("Login Succesful", {theme:'colored'});
+        toast("Login Succesful", { theme: "colored" });
         navigate("/");
+        setisloggedin(true);
+        settoken(res?.data.token);
+        setuser(res?.data);
         localStorage.setItem("Roleaks", JSON.stringify(res?.data));
       }
     } catch (error) {
@@ -68,7 +74,10 @@ const LoginScreen = () => {
       </div>
       <div className="mt-[1rem] flex flex-col  gap-3 w-full ">
         <p className="text-white">Don't have an account</p>
-        <Link className="text-[#00ffff] font-medium text-lg " to={"/auth/register"}>
+        <Link
+          className="text-[#00ffff] font-medium text-lg "
+          to={"/auth/register"}
+        >
           Create One
         </Link>
       </div>

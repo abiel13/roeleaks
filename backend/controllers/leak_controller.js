@@ -11,6 +11,7 @@ const fetchLeaks = handler(async (req, res) => {
     const totalPages = Math.ceil(totalDocuments / limit);
 
     const data = await Leaks.find()
+      .sort({ createdAt: -1 })
       .skip((page - 1) * limit)
       .populate({
         path: "author",
