@@ -4,7 +4,6 @@ import LeakCard from "../components/LeakCard";
 import { Separator } from "@/components/ui/separator";
 import { Rings } from "react-loader-spinner";
 
-
 const Feed: React.FC = () => {
   const [Leaks, setLeaks] = useState<any>();
   const [loading, setLoading] = useState(false);
@@ -37,9 +36,9 @@ const Feed: React.FC = () => {
             <Rings color="#A94141" />
           </div>
         ) : (
-          <div className="flex-1 flex flex-col gap-3">
-            {Leaks?.length  ? (
-              <div>
+          <div className="flex-1 flex flex-col gap-4">
+            {Leaks?.data?.length ? (
+              <div className="flex-1 flex flex-col gap-4">
                 {Leaks?.data?.map((item: any, i: number) => (
                   <LeakCard key={i} {...item} />
                 ))}
