@@ -7,17 +7,16 @@ import { Rings } from "react-loader-spinner";
 const Feed: React.FC = () => {
   const [Leaks, setLeaks] = useState<any>();
   const [loading, setLoading] = useState(false);
-  const [url, setUrl] = useState(
-    "https://roleaks-api.onrender.com/api/v1/leaks"
-  );
 
   useEffect(() => {
     const getData = async () => {
       try {
         setLoading(true);
-        const response = await fetchLeaks(url);
+        const response = await fetchLeaks(
+          "https://roleaks-api.onrender.com/api/v1/leaks"
+        );
         if (response) {
-          setLeaks(response.data);
+          setLeaks(response);
         }
         setLoading(false);
       } catch (error) {
@@ -25,7 +24,7 @@ const Feed: React.FC = () => {
       }
     };
     getData();
-  }, [url]);
+  }, []);
 
   return (
     <div className="flex flex-col gap-5">
@@ -38,10 +37,10 @@ const Feed: React.FC = () => {
           </div>
         ) : (
           <div className="flex-1 flex flex-col gap-3">
-            {Leaks?.map((item: any, i: number) => (
+            {Leaks?.data?.map((item: any, i: number) => (
               <LeakCard key={i} {...item} />
             ))}
-            load more
+            {Leaks?.pagination?.hasNextPage ? "" : ""}
           </div>
         )}
 
