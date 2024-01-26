@@ -5,6 +5,7 @@ const { UserDTO } = require("../config/Dto");
 const jwt = require("jsonwebtoken");
 const { generateOTP, generateOTPSecret, verifyOtp } = require("../config/otp");
 const { sendMail } = require("../config/transporter");
+const Followers = require("../models/Followers");
 
 const Create_User = asyncHandler(async (req, res) => {
   const { username, password, email } = req.body;
@@ -164,5 +165,15 @@ const resetPassword = asyncHandler(async (req, res) => {
     return res.status(500).send({ data: null, error: error.message });
   }
 });
+const newFollower = asyncHandler(async (req, res) => {
+  Followers.create({user_id: req.body.user_id, username: req.body.username})
+      .then((data)=>{
+        res.status(200).json({message: 'New Follower!'})
+      }).catch((err)=>{
+        console.log(err);
+        res.status(500).json({ data: null, error: err.message })
+      })
+});
+const yes = (9);
 
-module.exports = { Create_User, loginUser, forgotPassword, resetPassword };
+module.exports = { Create_User, loginUser, forgotPassword, resetPassword, newFollower };
